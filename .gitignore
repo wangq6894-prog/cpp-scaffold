@@ -1,0 +1,7 @@
+*.o
+*.out
+*.a
+*.so
+build/
+cmake-build-*/
+backup-git/
