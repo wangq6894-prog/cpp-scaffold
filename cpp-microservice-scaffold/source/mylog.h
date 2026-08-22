@@ -8,10 +8,10 @@
     7.封装日志输出宏
 */
 #pragma once
-#include <spdlog/spdlog.h>
+#include <spdlog/logger.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
-#include <spdlog/sinks/basic_file_sinks.h>
-#include <spdlog/sinks/rotating_file_sinks.h>
+#include <spdlog/sinks/basic_file_sink.h>
+#include <spdlog/sinks/rotating_file_sink.h>
 #include <spdlog/async.h>
 //声名命名空间
 namespace mylog
@@ -27,9 +27,10 @@ namespace mylog
     extern std::shared_ptr<spdlog::logger> g_logger;
     //声名全局日志器初始化接口
     extern void mylog_init(const log_setting& setting);
-    //生成日志输出宏
-    DBG(fmt,...) g_logger->debug("[{}:{}]:"+fmt,__FILE__,__LINE__,##__VA_ARGS__)
-    INF(fmt,...) g_logger->info("[{}:{}]:"+fmt,__FILE__,__LINE__,##__VA_ARGS__)
-    WRN(fmt,...) g_logger->warn("[{}:{}]:"+fmt,__FILE__,__LINE__,##__VA_ARGS__)
-    FATAL(fmt,...) g_logger->fatal("[{}:{}]:"+fmt,__FILE__,__LINE__,##__VA_ARGS__)
 }
+    //生成日志输出宏
+    #define FMT_PREFIX std::string("[{}:{}]:")
+    #define DBG(fmt,...) mylog::g_logger->debug(FMT_PREFIX+fmt,__FILE__,__LINE__,##__VA_ARGS__)
+    #define INF(fmt,...) mylog::g_logger->info(FMT_PREFIX+fmt,__FILE__,__LINE__,##__VA_ARGS__)
+    #define WRN(fmt,...) mylog::g_logger->warn(FMT_PREFIX+fmt,__FILE__,__LINE__,##__VA_ARGS__)
+    #define ERR(fmt,...) mylog::g_logger->error(FMT_PREFIX+fmt,__FILE__,__LINE__,##__VA_ARGS__)
