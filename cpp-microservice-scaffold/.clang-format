@@ -1,0 +1,31 @@
+# 基于 Google 风格的 C++ 格式化配置
+BasedOnStyle: Google
+Language: Cpp
+Standard: c++17
+
+# 缩进与宽度
+IndentWidth: 4
+ColumnLimit: 100
+TabWidth: 4
+UseTab: Never
+
+# 指针/引用对齐
+PointerAlignment: Left
+DerivePointerAlignment: false
+ReferenceAlignment: Pointer
+
+# 花括号
+BreakBeforeBraces: Attach
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+
+# 头文件
+SortIncludes: true
+IncludeBlocks: Preserve
+
+# 空行与空格
+MaxEmptyLinesToKeep: 2
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpaceBeforeParens: ControlStatements
