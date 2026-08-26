@@ -9,6 +9,12 @@ message PeopleInfo {
 
   message Phone{
     string number = 1;
+    enum PhoneType{
+      //枚举默认值为0
+      MP = 0;//移动电话
+      TEL = 1;//固定电话
+    }
+    PhoneType type = 2;//电话类型
   }
 
   repeated Phone phone = 3; //电话信息

@@ -12,6 +12,7 @@ void PrintContacts(contacts2::Contacts& contacts){
         for(int j = 0;j < people.phone_size();j++){
             const contacts2::PeopleInfo_Phone& phone = people.phone(j);
             cout << "联系人电话 " << j + 1 << "：" << phone.number() << endl;
+            cout <<"  （"<<phone.PhoneType_Name(phone.type()) <<"）"<< endl;
         }
     }
 }

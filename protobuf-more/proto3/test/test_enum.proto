@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+enum PhoneType{
+    MP = 0;
+    TEL = 1;
+}
+//同级的枚举类型下不能有相同的常量名称
+//在两个proto文件中如果没有指定package，则两文件中的PhoneType属同级
+//相对的，有指定不同package的话就不属同级，可以有相同的常量名称

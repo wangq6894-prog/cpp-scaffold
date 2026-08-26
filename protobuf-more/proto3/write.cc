@@ -24,7 +24,22 @@ void AddPeopleInfo(contacts2::PeopleInfo* people_info){
         }
         contacts2::PeopleInfo_Phone* phone = people_info -> add_phone();
         phone->set_number(number);
-    }
+        cout << "请输入改电话类型（1 移动电话 2 固定电话）：" << endl;
+        int type;
+        cin >> type;
+        cin.ignore(256,'\n');
+        switch(type){
+            case 1:
+                phone->set_type(contacts2::PeopleInfo_Phone_PhoneType_MP);
+                break;
+            case 2:
+                phone->set_type(contacts2::PeopleInfo_Phone_PhoneType_TEL);
+                break;
+            default:
+                cerr << "输入错误" << endl;
+                return;
+        }
+           }
 }
 
 int main(){
