@@ -1,0 +1,7 @@
+// 首行：语法指定行
+syntax = "proto3"; //不写默认proto2
+package contacts2; //同namespace
+
+message Phone { 
+    string number = 1; 
+}
