@@ -48,7 +48,38 @@ void AddPeopleInfo(contacts2::PeopleInfo* people_info){
         getline(cin,unit_address);
         address.set_unit_address(unit_address);
         people_info->mutable_data()->PackFrom(address);
-        cout << "添加联系人成功" << endl;
+        int other_contact;
+        cout << "请输入其他联系方式（1 QQ，2 微信，其他跳过）：" << endl;
+        cin >> other_contact;
+        cin.ignore(256,'\n');
+        if(other_contact == 1){
+            cout << "请输入联系人QQ：" << endl;
+            string qq;
+            getline(cin,qq);
+            people_info->set_qq(qq);
+        }
+        if(other_contact == 2){
+            cout << "请输入联系人微信：" << endl;
+            string wechat;
+            cin >> wechat;
+            people_info->set_wechat(wechat);
+        }
+        for(int i = 0;;i++){
+            cout << "请输入联系人备注 "  << i + 1 << " 只输入回车完成备注新增" << endl;
+            string remarkkey;
+            getline(cin,remarkkey);
+            if(remarkkey.empty()){
+                break;
+            }
+            cout << "请输入联系人备注 "  << i + 1 << " 内容：" << endl;
+            string remarkvalue;
+            getline(cin,remarkvalue);
+            if(remarkvalue.empty()){
+                break;
+            }
+            people_info->mutable_remark()->insert({remarkkey,remarkvalue});
+        }
+        cout << "-----------添加联系人成功----------" << endl;
     }
 }
 

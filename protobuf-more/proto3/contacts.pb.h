@@ -31,6 +31,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/map.h>  // IWYU pragma: export
+#include <google/protobuf/map_entry.h>
+#include <google/protobuf/map_field_inl.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include <google/protobuf/any.pb.h>
@@ -49,7 +52,7 @@ struct TableStruct_contacts_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -69,12 +72,16 @@ extern PeopleInfoDefaultTypeInternal _PeopleInfo_default_instance_;
 class PeopleInfo_Phone;
 class PeopleInfo_PhoneDefaultTypeInternal;
 extern PeopleInfo_PhoneDefaultTypeInternal _PeopleInfo_Phone_default_instance_;
+class PeopleInfo_RemarkEntry_DoNotUse;
+class PeopleInfo_RemarkEntry_DoNotUseDefaultTypeInternal;
+extern PeopleInfo_RemarkEntry_DoNotUseDefaultTypeInternal _PeopleInfo_RemarkEntry_DoNotUse_default_instance_;
 }  // namespace contacts2
 PROTOBUF_NAMESPACE_OPEN
 template<> ::contacts2::Address* Arena::CreateMaybeMessage<::contacts2::Address>(Arena*);
 template<> ::contacts2::Contacts* Arena::CreateMaybeMessage<::contacts2::Contacts>(Arena*);
 template<> ::contacts2::PeopleInfo* Arena::CreateMaybeMessage<::contacts2::PeopleInfo>(Arena*);
 template<> ::contacts2::PeopleInfo_Phone* Arena::CreateMaybeMessage<::contacts2::PeopleInfo_Phone>(Arena*);
+template<> ::contacts2::PeopleInfo_RemarkEntry_DoNotUse* Arena::CreateMaybeMessage<::contacts2::PeopleInfo_RemarkEntry_DoNotUse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace contacts2 {
 
@@ -479,6 +486,40 @@ class PeopleInfo_Phone PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class PeopleInfo_RemarkEntry_DoNotUse : public ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<PeopleInfo_RemarkEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    0 > {
+public:
+  typedef ::PROTOBUF_NAMESPACE_ID::internal::MapEntry<PeopleInfo_RemarkEntry_DoNotUse, 
+    std::string, std::string,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+    0 > SuperType;
+  PeopleInfo_RemarkEntry_DoNotUse();
+  PeopleInfo_RemarkEntry_DoNotUse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  void MergeFrom(const PeopleInfo_RemarkEntry_DoNotUse& other);
+  static const PeopleInfo_RemarkEntry_DoNotUse* internal_default_instance() { return reinterpret_cast<const PeopleInfo_RemarkEntry_DoNotUse*>(&_PeopleInfo_RemarkEntry_DoNotUse_default_instance_); }
+  static bool ValidateKey(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "contacts2.PeopleInfo.RemarkEntry.key");
+ }
+  static bool ValidateValue(std::string* s) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(s->data(), static_cast<int>(s->size()), ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE, "contacts2.PeopleInfo.RemarkEntry.value");
+ }
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& other) final;
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_contacts_2eproto);
+    return ::descriptor_table_contacts_2eproto.file_level_metadata[2];
+  }
+
+  public:
+};
+
+// -------------------------------------------------------------------
+
 class PeopleInfo PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:contacts2.PeopleInfo) */ {
  public:
@@ -515,13 +556,19 @@ class PeopleInfo PROTOBUF_FINAL :
   }
   static const PeopleInfo& default_instance();
 
+  enum OtherContactCase {
+    kQq = 5,
+    kWechat = 6,
+    OTHER_CONTACT_NOT_SET = 0,
+  };
+
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
   static inline const PeopleInfo* internal_default_instance() {
     return reinterpret_cast<const PeopleInfo*>(
                &_PeopleInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(PeopleInfo& a, PeopleInfo& b) {
     a.Swap(&b);
@@ -595,9 +642,12 @@ class PeopleInfo PROTOBUF_FINAL :
 
   enum : int {
     kPhoneFieldNumber = 3,
+    kRemarkFieldNumber = 7,
     kNameFieldNumber = 1,
     kDataFieldNumber = 4,
     kAgeFieldNumber = 2,
+    kQqFieldNumber = 5,
+    kWechatFieldNumber = 6,
   };
   // repeated .contacts2.PeopleInfo.Phone phone = 3;
   int phone_size() const;
@@ -616,6 +666,23 @@ class PeopleInfo PROTOBUF_FINAL :
   ::contacts2::PeopleInfo_Phone* add_phone();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::contacts2::PeopleInfo_Phone >&
       phone() const;
+
+  // map<string, string> remark = 7;
+  int remark_size() const;
+  private:
+  int _internal_remark_size() const;
+  public:
+  void clear_remark();
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      _internal_remark() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      _internal_mutable_remark();
+  public:
+  const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+      remark() const;
+  ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+      mutable_remark();
 
   // string name = 1;
   void clear_name();
@@ -669,18 +736,94 @@ class PeopleInfo PROTOBUF_FINAL :
   void _internal_set_age(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
+  // string qq = 5;
+  private:
+  bool _internal_has_qq() const;
+  public:
+  void clear_qq();
+  const std::string& qq() const;
+  void set_qq(const std::string& value);
+  void set_qq(std::string&& value);
+  void set_qq(const char* value);
+  void set_qq(const char* value, size_t size);
+  std::string* mutable_qq();
+  std::string* release_qq();
+  void set_allocated_qq(std::string* qq);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_qq();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_qq(
+      std::string* qq);
+  private:
+  const std::string& _internal_qq() const;
+  void _internal_set_qq(const std::string& value);
+  std::string* _internal_mutable_qq();
+  public:
+
+  // string wechat = 6;
+  private:
+  bool _internal_has_wechat() const;
+  public:
+  void clear_wechat();
+  const std::string& wechat() const;
+  void set_wechat(const std::string& value);
+  void set_wechat(std::string&& value);
+  void set_wechat(const char* value);
+  void set_wechat(const char* value, size_t size);
+  std::string* mutable_wechat();
+  std::string* release_wechat();
+  void set_allocated_wechat(std::string* wechat);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_wechat();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_wechat(
+      std::string* wechat);
+  private:
+  const std::string& _internal_wechat() const;
+  void _internal_set_wechat(const std::string& value);
+  std::string* _internal_mutable_wechat();
+  public:
+
+  void clear_other_contact();
+  OtherContactCase other_contact_case() const;
   // @@protoc_insertion_point(class_scope:contacts2.PeopleInfo)
  private:
   class _Internal;
+  void set_has_qq();
+  void set_has_wechat();
+
+  inline bool has_other_contact() const;
+  inline void clear_has_other_contact();
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::contacts2::PeopleInfo_Phone > phone_;
+  ::PROTOBUF_NAMESPACE_ID::internal::MapField<
+      PeopleInfo_RemarkEntry_DoNotUse,
+      std::string, std::string,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
+      0 > remark_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
   PROTOBUF_NAMESPACE_ID::Any* data_;
   ::PROTOBUF_NAMESPACE_ID::int32 age_;
+  union OtherContactUnion {
+    OtherContactUnion() {}
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr qq_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr wechat_;
+  } other_contact_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
+
   friend struct ::TableStruct_contacts_2eproto;
 };
 // -------------------------------------------------------------------
@@ -727,7 +870,7 @@ class Contacts PROTOBUF_FINAL :
                &_Contacts_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(Contacts& a, Contacts& b) {
     a.Swap(&b);
@@ -1109,6 +1252,8 @@ inline void PeopleInfo_Phone::set_type(::contacts2::PeopleInfo_Phone_PhoneType v
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 // PeopleInfo
 
 // string name = 1;
@@ -1326,6 +1471,294 @@ inline void PeopleInfo::set_allocated_data(PROTOBUF_NAMESPACE_ID::Any* data) {
   // @@protoc_insertion_point(field_set_allocated:contacts2.PeopleInfo.data)
 }
 
+// string qq = 5;
+inline bool PeopleInfo::_internal_has_qq() const {
+  return other_contact_case() == kQq;
+}
+inline void PeopleInfo::set_has_qq() {
+  _oneof_case_[0] = kQq;
+}
+inline void PeopleInfo::clear_qq() {
+  if (_internal_has_qq()) {
+    other_contact_.qq_.Destroy(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+    clear_has_other_contact();
+  }
+}
+inline const std::string& PeopleInfo::qq() const {
+  // @@protoc_insertion_point(field_get:contacts2.PeopleInfo.qq)
+  return _internal_qq();
+}
+inline void PeopleInfo::set_qq(const std::string& value) {
+  _internal_set_qq(value);
+  // @@protoc_insertion_point(field_set:contacts2.PeopleInfo.qq)
+}
+inline std::string* PeopleInfo::mutable_qq() {
+  // @@protoc_insertion_point(field_mutable:contacts2.PeopleInfo.qq)
+  return _internal_mutable_qq();
+}
+inline const std::string& PeopleInfo::_internal_qq() const {
+  if (_internal_has_qq()) {
+    return other_contact_.qq_.Get();
+  }
+  return *&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+}
+inline void PeopleInfo::_internal_set_qq(const std::string& value) {
+  if (!_internal_has_qq()) {
+    clear_other_contact();
+    set_has_qq();
+    other_contact_.qq_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  other_contact_.qq_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void PeopleInfo::set_qq(std::string&& value) {
+  // @@protoc_insertion_point(field_set:contacts2.PeopleInfo.qq)
+  if (!_internal_has_qq()) {
+    clear_other_contact();
+    set_has_qq();
+    other_contact_.qq_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  other_contact_.qq_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:contacts2.PeopleInfo.qq)
+}
+inline void PeopleInfo::set_qq(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  if (!_internal_has_qq()) {
+    clear_other_contact();
+    set_has_qq();
+    other_contact_.qq_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  other_contact_.qq_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:contacts2.PeopleInfo.qq)
+}
+inline void PeopleInfo::set_qq(const char* value,
+                             size_t size) {
+  if (!_internal_has_qq()) {
+    clear_other_contact();
+    set_has_qq();
+    other_contact_.qq_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  other_contact_.qq_.Set(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size),
+      GetArena());
+  // @@protoc_insertion_point(field_set_pointer:contacts2.PeopleInfo.qq)
+}
+inline std::string* PeopleInfo::_internal_mutable_qq() {
+  if (!_internal_has_qq()) {
+    clear_other_contact();
+    set_has_qq();
+    other_contact_.qq_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  return other_contact_.qq_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* PeopleInfo::release_qq() {
+  // @@protoc_insertion_point(field_release:contacts2.PeopleInfo.qq)
+  if (_internal_has_qq()) {
+    clear_has_other_contact();
+    return other_contact_.qq_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  } else {
+    return nullptr;
+  }
+}
+inline void PeopleInfo::set_allocated_qq(std::string* qq) {
+  if (has_other_contact()) {
+    clear_other_contact();
+  }
+  if (qq != nullptr) {
+    set_has_qq();
+    other_contact_.qq_.UnsafeSetDefault(qq);
+  }
+  // @@protoc_insertion_point(field_set_allocated:contacts2.PeopleInfo.qq)
+}
+inline std::string* PeopleInfo::unsafe_arena_release_qq() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:contacts2.PeopleInfo.qq)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (_internal_has_qq()) {
+    clear_has_other_contact();
+    return other_contact_.qq_.UnsafeArenaRelease(
+        &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  } else {
+    return nullptr;
+  }
+}
+inline void PeopleInfo::unsafe_arena_set_allocated_qq(std::string* qq) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (!_internal_has_qq()) {
+    other_contact_.qq_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_other_contact();
+  if (qq) {
+    set_has_qq();
+    other_contact_.qq_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), qq, GetArena());
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:contacts2.PeopleInfo.qq)
+}
+
+// string wechat = 6;
+inline bool PeopleInfo::_internal_has_wechat() const {
+  return other_contact_case() == kWechat;
+}
+inline void PeopleInfo::set_has_wechat() {
+  _oneof_case_[0] = kWechat;
+}
+inline void PeopleInfo::clear_wechat() {
+  if (_internal_has_wechat()) {
+    other_contact_.wechat_.Destroy(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+    clear_has_other_contact();
+  }
+}
+inline const std::string& PeopleInfo::wechat() const {
+  // @@protoc_insertion_point(field_get:contacts2.PeopleInfo.wechat)
+  return _internal_wechat();
+}
+inline void PeopleInfo::set_wechat(const std::string& value) {
+  _internal_set_wechat(value);
+  // @@protoc_insertion_point(field_set:contacts2.PeopleInfo.wechat)
+}
+inline std::string* PeopleInfo::mutable_wechat() {
+  // @@protoc_insertion_point(field_mutable:contacts2.PeopleInfo.wechat)
+  return _internal_mutable_wechat();
+}
+inline const std::string& PeopleInfo::_internal_wechat() const {
+  if (_internal_has_wechat()) {
+    return other_contact_.wechat_.Get();
+  }
+  return *&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited();
+}
+inline void PeopleInfo::_internal_set_wechat(const std::string& value) {
+  if (!_internal_has_wechat()) {
+    clear_other_contact();
+    set_has_wechat();
+    other_contact_.wechat_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  other_contact_.wechat_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void PeopleInfo::set_wechat(std::string&& value) {
+  // @@protoc_insertion_point(field_set:contacts2.PeopleInfo.wechat)
+  if (!_internal_has_wechat()) {
+    clear_other_contact();
+    set_has_wechat();
+    other_contact_.wechat_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  other_contact_.wechat_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:contacts2.PeopleInfo.wechat)
+}
+inline void PeopleInfo::set_wechat(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  if (!_internal_has_wechat()) {
+    clear_other_contact();
+    set_has_wechat();
+    other_contact_.wechat_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  other_contact_.wechat_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:contacts2.PeopleInfo.wechat)
+}
+inline void PeopleInfo::set_wechat(const char* value,
+                             size_t size) {
+  if (!_internal_has_wechat()) {
+    clear_other_contact();
+    set_has_wechat();
+    other_contact_.wechat_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  other_contact_.wechat_.Set(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size),
+      GetArena());
+  // @@protoc_insertion_point(field_set_pointer:contacts2.PeopleInfo.wechat)
+}
+inline std::string* PeopleInfo::_internal_mutable_wechat() {
+  if (!_internal_has_wechat()) {
+    clear_other_contact();
+    set_has_wechat();
+    other_contact_.wechat_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  return other_contact_.wechat_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* PeopleInfo::release_wechat() {
+  // @@protoc_insertion_point(field_release:contacts2.PeopleInfo.wechat)
+  if (_internal_has_wechat()) {
+    clear_has_other_contact();
+    return other_contact_.wechat_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  } else {
+    return nullptr;
+  }
+}
+inline void PeopleInfo::set_allocated_wechat(std::string* wechat) {
+  if (has_other_contact()) {
+    clear_other_contact();
+  }
+  if (wechat != nullptr) {
+    set_has_wechat();
+    other_contact_.wechat_.UnsafeSetDefault(wechat);
+  }
+  // @@protoc_insertion_point(field_set_allocated:contacts2.PeopleInfo.wechat)
+}
+inline std::string* PeopleInfo::unsafe_arena_release_wechat() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:contacts2.PeopleInfo.wechat)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (_internal_has_wechat()) {
+    clear_has_other_contact();
+    return other_contact_.wechat_.UnsafeArenaRelease(
+        &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  } else {
+    return nullptr;
+  }
+}
+inline void PeopleInfo::unsafe_arena_set_allocated_wechat(std::string* wechat) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (!_internal_has_wechat()) {
+    other_contact_.wechat_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  }
+  clear_other_contact();
+  if (wechat) {
+    set_has_wechat();
+    other_contact_.wechat_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), wechat, GetArena());
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:contacts2.PeopleInfo.wechat)
+}
+
+// map<string, string> remark = 7;
+inline int PeopleInfo::_internal_remark_size() const {
+  return remark_.size();
+}
+inline int PeopleInfo::remark_size() const {
+  return _internal_remark_size();
+}
+inline void PeopleInfo::clear_remark() {
+  remark_.Clear();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+PeopleInfo::_internal_remark() const {
+  return remark_.GetMap();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >&
+PeopleInfo::remark() const {
+  // @@protoc_insertion_point(field_map:contacts2.PeopleInfo.remark)
+  return _internal_remark();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+PeopleInfo::_internal_mutable_remark() {
+  return remark_.MutableMap();
+}
+inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >*
+PeopleInfo::mutable_remark() {
+  // @@protoc_insertion_point(field_mutable_map:contacts2.PeopleInfo.remark)
+  return _internal_mutable_remark();
+}
+
+inline bool PeopleInfo::has_other_contact() const {
+  return other_contact_case() != OTHER_CONTACT_NOT_SET;
+}
+inline void PeopleInfo::clear_has_other_contact() {
+  _oneof_case_[0] = OTHER_CONTACT_NOT_SET;
+}
+inline PeopleInfo::OtherContactCase PeopleInfo::other_contact_case() const {
+  return PeopleInfo::OtherContactCase(_oneof_case_[0]);
+}
 // -------------------------------------------------------------------
 
 // Contacts
@@ -1372,6 +1805,8 @@ Contacts::contacts() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -23,6 +23,23 @@ void PrintContacts(contacts2::Contacts& contacts){
             if(!address.unit_address().empty()){
                 cout << "联系人单位地址：" << address.unit_address() << endl;
             }
+           switch(people.other_contact_case()){
+                case contacts2::PeopleInfo::OtherContactCase::kQq:
+                    cout << "联系人QQ：" << people.qq() << endl;
+                    break;
+                case contacts2::PeopleInfo::OtherContactCase::kWechat:
+                    cout << "联系人微信：" << people.wechat() << endl;
+                    break;
+                default:
+                    cout << "联系人其他联系方式为空" << endl;
+                    break;
+            }
+        }
+        if(people.remark_size()){
+            cout << "备注信息：" << endl;
+            for(auto& it : people.remark()){
+                cout << "   " << it.first << "：" << it.second << endl;
+            }
         }
     }
 }
