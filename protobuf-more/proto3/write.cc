@@ -14,7 +14,6 @@ void AddPeopleInfo(contacts2::PeopleInfo* people_info){
     cin >> age;
     people_info->set_age(age);
     cin.ignore(256,'\n');
-    cout << "添加联系人成功" << endl;
     for(int i = 0;;i++){
         cout << "请输入联系人电话 "  << i + 1 << " 只输入回车完成电话新增" << endl;
         string number;
@@ -39,7 +38,18 @@ void AddPeopleInfo(contacts2::PeopleInfo* people_info){
                 cerr << "输入错误" << endl;
                 return;
         }
-           }
+        contacts2::Address address;
+        cout << "请输入联系人家庭地址：" << endl;
+        string home_address;
+        getline(cin,home_address);
+        address.set_home_address(home_address);
+        cout << "请输入联系人单位地址：" << endl;
+        string unit_address;
+        getline(cin,unit_address);
+        address.set_unit_address(unit_address);
+        people_info->mutable_data()->PackFrom(address);
+        cout << "添加联系人成功" << endl;
+    }
 }
 
 int main(){

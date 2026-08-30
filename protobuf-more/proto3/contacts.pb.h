@@ -33,6 +33,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include <google/protobuf/any.pb.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_contacts_2eproto
@@ -48,7 +49,7 @@ struct TableStruct_contacts_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[3]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -56,6 +57,9 @@ struct TableStruct_contacts_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_contacts_2eproto;
 namespace contacts2 {
+class Address;
+class AddressDefaultTypeInternal;
+extern AddressDefaultTypeInternal _Address_default_instance_;
 class Contacts;
 class ContactsDefaultTypeInternal;
 extern ContactsDefaultTypeInternal _Contacts_default_instance_;
@@ -67,6 +71,7 @@ class PeopleInfo_PhoneDefaultTypeInternal;
 extern PeopleInfo_PhoneDefaultTypeInternal _PeopleInfo_Phone_default_instance_;
 }  // namespace contacts2
 PROTOBUF_NAMESPACE_OPEN
+template<> ::contacts2::Address* Arena::CreateMaybeMessage<::contacts2::Address>(Arena*);
 template<> ::contacts2::Contacts* Arena::CreateMaybeMessage<::contacts2::Contacts>(Arena*);
 template<> ::contacts2::PeopleInfo* Arena::CreateMaybeMessage<::contacts2::PeopleInfo>(Arena*);
 template<> ::contacts2::PeopleInfo_Phone* Arena::CreateMaybeMessage<::contacts2::PeopleInfo_Phone>(Arena*);
@@ -99,6 +104,186 @@ inline bool PeopleInfo_Phone_PhoneType_Parse(
     PeopleInfo_Phone_PhoneType_descriptor(), name, value);
 }
 // ===================================================================
+
+class Address PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:contacts2.Address) */ {
+ public:
+  inline Address() : Address(nullptr) {};
+  virtual ~Address();
+
+  Address(const Address& from);
+  Address(Address&& from) noexcept
+    : Address() {
+    *this = ::std::move(from);
+  }
+
+  inline Address& operator=(const Address& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Address& operator=(Address&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const Address& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Address* internal_default_instance() {
+    return reinterpret_cast<const Address*>(
+               &_Address_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(Address& a, Address& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Address* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Address* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Address* New() const final {
+    return CreateMaybeMessage<Address>(nullptr);
+  }
+
+  Address* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<Address>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const Address& from);
+  void MergeFrom(const Address& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Address* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "contacts2.Address";
+  }
+  protected:
+  explicit Address(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_contacts_2eproto);
+    return ::descriptor_table_contacts_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kHomeAddressFieldNumber = 1,
+    kUnitAddressFieldNumber = 2,
+  };
+  // string home_address = 1;
+  void clear_home_address();
+  const std::string& home_address() const;
+  void set_home_address(const std::string& value);
+  void set_home_address(std::string&& value);
+  void set_home_address(const char* value);
+  void set_home_address(const char* value, size_t size);
+  std::string* mutable_home_address();
+  std::string* release_home_address();
+  void set_allocated_home_address(std::string* home_address);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_home_address();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_home_address(
+      std::string* home_address);
+  private:
+  const std::string& _internal_home_address() const;
+  void _internal_set_home_address(const std::string& value);
+  std::string* _internal_mutable_home_address();
+  public:
+
+  // string unit_address = 2;
+  void clear_unit_address();
+  const std::string& unit_address() const;
+  void set_unit_address(const std::string& value);
+  void set_unit_address(std::string&& value);
+  void set_unit_address(const char* value);
+  void set_unit_address(const char* value, size_t size);
+  std::string* mutable_unit_address();
+  std::string* release_unit_address();
+  void set_allocated_unit_address(std::string* unit_address);
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  std::string* unsafe_arena_release_unit_address();
+  GOOGLE_PROTOBUF_RUNTIME_DEPRECATED("The unsafe_arena_ accessors for"
+  "    string fields are deprecated and will be removed in a"
+  "    future release.")
+  void unsafe_arena_set_allocated_unit_address(
+      std::string* unit_address);
+  private:
+  const std::string& _internal_unit_address() const;
+  void _internal_set_unit_address(const std::string& value);
+  std::string* _internal_mutable_unit_address();
+  public:
+
+  // @@protoc_insertion_point(class_scope:contacts2.Address)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr home_address_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr unit_address_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_contacts_2eproto;
+};
+// -------------------------------------------------------------------
 
 class PeopleInfo_Phone PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:contacts2.PeopleInfo.Phone) */ {
@@ -142,7 +327,7 @@ class PeopleInfo_Phone PROTOBUF_FINAL :
                &_PeopleInfo_Phone_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    1;
 
   friend void swap(PeopleInfo_Phone& a, PeopleInfo_Phone& b) {
     a.Swap(&b);
@@ -336,7 +521,7 @@ class PeopleInfo PROTOBUF_FINAL :
                &_PeopleInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(PeopleInfo& a, PeopleInfo& b) {
     a.Swap(&b);
@@ -411,6 +596,7 @@ class PeopleInfo PROTOBUF_FINAL :
   enum : int {
     kPhoneFieldNumber = 3,
     kNameFieldNumber = 1,
+    kDataFieldNumber = 4,
     kAgeFieldNumber = 2,
   };
   // repeated .contacts2.PeopleInfo.Phone phone = 3;
@@ -456,6 +642,24 @@ class PeopleInfo PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
+  // .google.protobuf.Any data = 4;
+  bool has_data() const;
+  private:
+  bool _internal_has_data() const;
+  public:
+  void clear_data();
+  const PROTOBUF_NAMESPACE_ID::Any& data() const;
+  PROTOBUF_NAMESPACE_ID::Any* release_data();
+  PROTOBUF_NAMESPACE_ID::Any* mutable_data();
+  void set_allocated_data(PROTOBUF_NAMESPACE_ID::Any* data);
+  private:
+  const PROTOBUF_NAMESPACE_ID::Any& _internal_data() const;
+  PROTOBUF_NAMESPACE_ID::Any* _internal_mutable_data();
+  public:
+  void unsafe_arena_set_allocated_data(
+      PROTOBUF_NAMESPACE_ID::Any* data);
+  PROTOBUF_NAMESPACE_ID::Any* unsafe_arena_release_data();
+
   // int32 age = 2;
   void clear_age();
   ::PROTOBUF_NAMESPACE_ID::int32 age() const;
@@ -474,6 +678,7 @@ class PeopleInfo PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::contacts2::PeopleInfo_Phone > phone_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  PROTOBUF_NAMESPACE_ID::Any* data_;
   ::PROTOBUF_NAMESPACE_ID::int32 age_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_contacts_2eproto;
@@ -522,7 +727,7 @@ class Contacts PROTOBUF_FINAL :
                &_Contacts_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(Contacts& a, Contacts& b) {
     a.Swap(&b);
@@ -633,6 +838,172 @@ class Contacts PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// Address
+
+// string home_address = 1;
+inline void Address::clear_home_address() {
+  home_address_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Address::home_address() const {
+  // @@protoc_insertion_point(field_get:contacts2.Address.home_address)
+  return _internal_home_address();
+}
+inline void Address::set_home_address(const std::string& value) {
+  _internal_set_home_address(value);
+  // @@protoc_insertion_point(field_set:contacts2.Address.home_address)
+}
+inline std::string* Address::mutable_home_address() {
+  // @@protoc_insertion_point(field_mutable:contacts2.Address.home_address)
+  return _internal_mutable_home_address();
+}
+inline const std::string& Address::_internal_home_address() const {
+  return home_address_.Get();
+}
+inline void Address::_internal_set_home_address(const std::string& value) {
+  
+  home_address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Address::set_home_address(std::string&& value) {
+  
+  home_address_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:contacts2.Address.home_address)
+}
+inline void Address::set_home_address(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  home_address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:contacts2.Address.home_address)
+}
+inline void Address::set_home_address(const char* value,
+    size_t size) {
+  
+  home_address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:contacts2.Address.home_address)
+}
+inline std::string* Address::_internal_mutable_home_address() {
+  
+  return home_address_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Address::release_home_address() {
+  // @@protoc_insertion_point(field_release:contacts2.Address.home_address)
+  return home_address_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Address::set_allocated_home_address(std::string* home_address) {
+  if (home_address != nullptr) {
+    
+  } else {
+    
+  }
+  home_address_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), home_address,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:contacts2.Address.home_address)
+}
+inline std::string* Address::unsafe_arena_release_home_address() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:contacts2.Address.home_address)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return home_address_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Address::unsafe_arena_set_allocated_home_address(
+    std::string* home_address) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (home_address != nullptr) {
+    
+  } else {
+    
+  }
+  home_address_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      home_address, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:contacts2.Address.home_address)
+}
+
+// string unit_address = 2;
+inline void Address::clear_unit_address() {
+  unit_address_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& Address::unit_address() const {
+  // @@protoc_insertion_point(field_get:contacts2.Address.unit_address)
+  return _internal_unit_address();
+}
+inline void Address::set_unit_address(const std::string& value) {
+  _internal_set_unit_address(value);
+  // @@protoc_insertion_point(field_set:contacts2.Address.unit_address)
+}
+inline std::string* Address::mutable_unit_address() {
+  // @@protoc_insertion_point(field_mutable:contacts2.Address.unit_address)
+  return _internal_mutable_unit_address();
+}
+inline const std::string& Address::_internal_unit_address() const {
+  return unit_address_.Get();
+}
+inline void Address::_internal_set_unit_address(const std::string& value) {
+  
+  unit_address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void Address::set_unit_address(std::string&& value) {
+  
+  unit_address_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:contacts2.Address.unit_address)
+}
+inline void Address::set_unit_address(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  unit_address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:contacts2.Address.unit_address)
+}
+inline void Address::set_unit_address(const char* value,
+    size_t size) {
+  
+  unit_address_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:contacts2.Address.unit_address)
+}
+inline std::string* Address::_internal_mutable_unit_address() {
+  
+  return unit_address_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* Address::release_unit_address() {
+  // @@protoc_insertion_point(field_release:contacts2.Address.unit_address)
+  return unit_address_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Address::set_allocated_unit_address(std::string* unit_address) {
+  if (unit_address != nullptr) {
+    
+  } else {
+    
+  }
+  unit_address_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), unit_address,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:contacts2.Address.unit_address)
+}
+inline std::string* Address::unsafe_arena_release_unit_address() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:contacts2.Address.unit_address)
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  
+  return unit_address_.UnsafeArenaRelease(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      GetArena());
+}
+inline void Address::unsafe_arena_set_allocated_unit_address(
+    std::string* unit_address) {
+  GOOGLE_DCHECK(GetArena() != nullptr);
+  if (unit_address != nullptr) {
+    
+  } else {
+    
+  }
+  unit_address_.UnsafeArenaSetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      unit_address, GetArena());
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:contacts2.Address.unit_address)
+}
+
+// -------------------------------------------------------------------
+
 // PeopleInfo_Phone
 
 // string number = 1;
@@ -880,6 +1251,81 @@ PeopleInfo::phone() const {
   return phone_;
 }
 
+// .google.protobuf.Any data = 4;
+inline bool PeopleInfo::_internal_has_data() const {
+  return this != internal_default_instance() && data_ != nullptr;
+}
+inline bool PeopleInfo::has_data() const {
+  return _internal_has_data();
+}
+inline const PROTOBUF_NAMESPACE_ID::Any& PeopleInfo::_internal_data() const {
+  const PROTOBUF_NAMESPACE_ID::Any* p = data_;
+  return p != nullptr ? *p : *reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Any*>(
+      &PROTOBUF_NAMESPACE_ID::_Any_default_instance_);
+}
+inline const PROTOBUF_NAMESPACE_ID::Any& PeopleInfo::data() const {
+  // @@protoc_insertion_point(field_get:contacts2.PeopleInfo.data)
+  return _internal_data();
+}
+inline void PeopleInfo::unsafe_arena_set_allocated_data(
+    PROTOBUF_NAMESPACE_ID::Any* data) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(data_);
+  }
+  data_ = data;
+  if (data) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:contacts2.PeopleInfo.data)
+}
+inline PROTOBUF_NAMESPACE_ID::Any* PeopleInfo::release_data() {
+  auto temp = unsafe_arena_release_data();
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Any* PeopleInfo::unsafe_arena_release_data() {
+  // @@protoc_insertion_point(field_release:contacts2.PeopleInfo.data)
+  
+  PROTOBUF_NAMESPACE_ID::Any* temp = data_;
+  data_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Any* PeopleInfo::_internal_mutable_data() {
+  
+  if (data_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Any>(GetArena());
+    data_ = p;
+  }
+  return data_;
+}
+inline PROTOBUF_NAMESPACE_ID::Any* PeopleInfo::mutable_data() {
+  // @@protoc_insertion_point(field_mutable:contacts2.PeopleInfo.data)
+  return _internal_mutable_data();
+}
+inline void PeopleInfo::set_allocated_data(PROTOBUF_NAMESPACE_ID::Any* data) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(data_);
+  }
+  if (data) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(data)->GetArena();
+    if (message_arena != submessage_arena) {
+      data = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, data, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  data_ = data;
+  // @@protoc_insertion_point(field_set_allocated:contacts2.PeopleInfo.data)
+}
+
 // -------------------------------------------------------------------
 
 // Contacts
@@ -926,6 +1372,8 @@ Contacts::contacts() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
