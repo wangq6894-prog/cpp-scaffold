@@ -1,0 +1,24 @@
+syntax = "proto3";
+package add_contact;
+import "google/protobuf/empty.proto";
+
+message AddContactRequest {
+    string name = 1; //姓名
+    int32 age = 2;   //年龄
+    message Phone{
+    string number = 1;
+    enum PhoneType{
+      //枚举默认值为0
+      MP = 0;//移动电话
+      TEL = 1;//固定电话
+    }
+    PhoneType type = 2;//电话类型
+  }
+  repeated Phone phone = 3; //电话信息
+}
+
+message AddContactResponse{
+    bool success = 1;//服务调用是否成功
+    string error_desc = 2;//错误原因
+    string uid =  3;
+}
