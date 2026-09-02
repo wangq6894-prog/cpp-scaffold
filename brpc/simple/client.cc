@@ -1,7 +1,6 @@
 #include <brpc/channel.h>
 #include "cal.pb.h"
 #include <iostream>
-
 int main(int argc,char* argv[]){
     //0.实例化ChannelOptions对象
     brpc::ChannelOptions options;
