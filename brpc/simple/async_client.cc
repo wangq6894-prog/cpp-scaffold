@@ -1,4 +1,5 @@
 #include <brpc/channel.h>
+#include <brpc/controller.h>   // brpc::Controller
 #include "cal.pb.h"
 #include <iostream>
 
@@ -23,6 +24,7 @@ int main(int argc,char* argv[]){
     //2.实例化CalService_stub对象--用于发起rpc请求
     cal::CalService_Stub stub(&channel);
     brpc::Controller* cntl = new brpc::Controller();
+    cntl->set_timeout_ms(4000);
     cal::AddReq* request = new cal::AddReq();
     cal::AddRsp* response = new cal::AddRsp();
     request->set_num1(10);
