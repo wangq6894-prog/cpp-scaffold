@@ -11,6 +11,14 @@ message AddRsp{
     int32 result = 1;
 }
 
+message helloReq{
+    //用于http请求，不需要其他字段
+}
+message helloRsp{
+    //用于http响应，不需要其他字段
+}
+
 service CalService{
     rpc Add(AddReq) returns (AddRsp);
+    rpc Hello(helloReq) returns (helloRsp);
 }

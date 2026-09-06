@@ -23,6 +23,14 @@ class AddRspDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<AddRsp> _instance;
 } _AddRsp_default_instance_;
+class helloReqDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<helloReq> _instance;
+} _helloReq_default_instance_;
+class helloRspDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<helloRsp> _instance;
+} _helloRsp_default_instance_;
 }  // namespace cal
 static void InitDefaultsscc_info_AddReq_cal_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -52,7 +60,35 @@ static void InitDefaultsscc_info_AddRsp_cal_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AddRsp_cal_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_AddRsp_cal_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_cal_2eproto[2];
+static void InitDefaultsscc_info_helloReq_cal_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::cal::_helloReq_default_instance_;
+    new (ptr) ::cal::helloReq();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::cal::helloReq::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_helloReq_cal_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_helloReq_cal_2eproto}, {}};
+
+static void InitDefaultsscc_info_helloRsp_cal_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::cal::_helloRsp_default_instance_;
+    new (ptr) ::cal::helloRsp();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::cal::helloRsp::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_helloRsp_cal_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_helloRsp_cal_2eproto}, {}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_cal_2eproto[4];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_cal_2eproto = nullptr;
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_cal_2eproto[1];
 
@@ -70,35 +106,53 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_cal_2eproto::offsets[] PROTOBU
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::cal::AddRsp, result_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::cal::helloReq, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::cal::helloRsp, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::cal::AddReq)},
   { 7, -1, sizeof(::cal::AddRsp)},
+  { 13, -1, sizeof(::cal::helloReq)},
+  { 18, -1, sizeof(::cal::helloRsp)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cal::_AddReq_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cal::_AddRsp_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cal::_helloReq_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cal::_helloRsp_default_instance_),
 };
 
 const char descriptor_table_protodef_cal_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\tcal.proto\022\003cal\"$\n\006AddReq\022\014\n\004num1\030\001 \001(\005"
   "\022\014\n\004num2\030\002 \001(\005\"\030\n\006AddRsp\022\016\n\006result\030\001 \001(\005"
-  "2-\n\nCalService\022\037\n\003Add\022\013.cal.AddReq\032\013.cal"
-  ".AddRspB\003\200\001\001b\006proto3"
+  "\"\n\n\010helloReq\"\n\n\010helloRsp2T\n\nCalService\022\037"
+  "\n\003Add\022\013.cal.AddReq\032\013.cal.AddRsp\022%\n\005Hello"
+  "\022\r.cal.helloReq\032\r.cal.helloRspB\003\200\001\001b\006pro"
+  "to3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_cal_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_cal_2eproto_sccs[2] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_cal_2eproto_sccs[4] = {
   &scc_info_AddReq_cal_2eproto.base,
   &scc_info_AddRsp_cal_2eproto.base,
+  &scc_info_helloReq_cal_2eproto.base,
+  &scc_info_helloRsp_cal_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_cal_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_cal_2eproto = {
-  false, false, descriptor_table_protodef_cal_2eproto, "cal.proto", 140,
-  &descriptor_table_cal_2eproto_once, descriptor_table_cal_2eproto_sccs, descriptor_table_cal_2eproto_deps, 2, 0,
+  false, false, descriptor_table_protodef_cal_2eproto, "cal.proto", 203,
+  &descriptor_table_cal_2eproto_once, descriptor_table_cal_2eproto_sccs, descriptor_table_cal_2eproto_deps, 4, 0,
   schemas, file_default_instances, TableStruct_cal_2eproto::offsets,
-  file_level_metadata_cal_2eproto, 2, file_level_enum_descriptors_cal_2eproto, file_level_service_descriptors_cal_2eproto,
+  file_level_metadata_cal_2eproto, 4, file_level_enum_descriptors_cal_2eproto, file_level_service_descriptors_cal_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -535,6 +589,336 @@ void AddRsp::InternalSwap(AddRsp* other) {
 
 // ===================================================================
 
+void helloReq::InitAsDefaultInstance() {
+}
+class helloReq::_Internal {
+ public:
+};
+
+helloReq::helloReq(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:cal.helloReq)
+}
+helloReq::helloReq(const helloReq& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:cal.helloReq)
+}
+
+void helloReq::SharedCtor() {
+}
+
+helloReq::~helloReq() {
+  // @@protoc_insertion_point(destructor:cal.helloReq)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void helloReq::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void helloReq::ArenaDtor(void* object) {
+  helloReq* _this = reinterpret_cast< helloReq* >(object);
+  (void)_this;
+}
+void helloReq::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void helloReq::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const helloReq& helloReq::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_helloReq_cal_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void helloReq::Clear() {
+// @@protoc_insertion_point(message_clear_start:cal.helloReq)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* helloReq::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* helloReq::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:cal.helloReq)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:cal.helloReq)
+  return target;
+}
+
+size_t helloReq::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:cal.helloReq)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void helloReq::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:cal.helloReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  const helloReq* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<helloReq>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cal.helloReq)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cal.helloReq)
+    MergeFrom(*source);
+  }
+}
+
+void helloReq::MergeFrom(const helloReq& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:cal.helloReq)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void helloReq::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:cal.helloReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void helloReq::CopyFrom(const helloReq& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:cal.helloReq)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool helloReq::IsInitialized() const {
+  return true;
+}
+
+void helloReq::InternalSwap(helloReq* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata helloReq::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void helloRsp::InitAsDefaultInstance() {
+}
+class helloRsp::_Internal {
+ public:
+};
+
+helloRsp::helloRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:cal.helloRsp)
+}
+helloRsp::helloRsp(const helloRsp& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:cal.helloRsp)
+}
+
+void helloRsp::SharedCtor() {
+}
+
+helloRsp::~helloRsp() {
+  // @@protoc_insertion_point(destructor:cal.helloRsp)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void helloRsp::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void helloRsp::ArenaDtor(void* object) {
+  helloRsp* _this = reinterpret_cast< helloRsp* >(object);
+  (void)_this;
+}
+void helloRsp::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void helloRsp::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const helloRsp& helloRsp::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_helloRsp_cal_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void helloRsp::Clear() {
+// @@protoc_insertion_point(message_clear_start:cal.helloRsp)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* helloRsp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* helloRsp::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:cal.helloRsp)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:cal.helloRsp)
+  return target;
+}
+
+size_t helloRsp::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:cal.helloRsp)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void helloRsp::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:cal.helloRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  const helloRsp* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<helloRsp>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:cal.helloRsp)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:cal.helloRsp)
+    MergeFrom(*source);
+  }
+}
+
+void helloRsp::MergeFrom(const helloRsp& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:cal.helloRsp)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void helloRsp::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:cal.helloRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void helloRsp::CopyFrom(const helloRsp& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:cal.helloRsp)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool helloRsp::IsInitialized() const {
+  return true;
+}
+
+void helloRsp::InternalSwap(helloRsp* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata helloRsp::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 CalService::~CalService() {}
 
 const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* CalService::descriptor() {
@@ -554,6 +938,14 @@ void CalService::Add(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
   done->Run();
 }
 
+void CalService::Hello(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::cal::helloReq*,
+                         ::cal::helloRsp*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method Hello() not implemented.");
+  done->Run();
+}
+
 void CalService::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -569,6 +961,14 @@ void CalService::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* met
                  response),
              done);
       break;
+    case 1:
+      Hello(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::cal::helloReq*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::cal::helloRsp*>(
+                 response),
+             done);
+      break;
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       break;
@@ -581,6 +981,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& CalService::GetRequestPrototype(
   switch(method->index()) {
     case 0:
       return ::cal::AddReq::default_instance();
+    case 1:
+      return ::cal::helloReq::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -594,6 +996,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& CalService::GetResponsePrototype(
   switch(method->index()) {
     case 0:
       return ::cal::AddRsp::default_instance();
+    case 1:
+      return ::cal::helloRsp::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -619,6 +1023,13 @@ void CalService_Stub::Add(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
   channel_->CallMethod(descriptor()->method(0),
                        controller, request, response, done);
 }
+void CalService_Stub::Hello(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::cal::helloReq* request,
+                              ::cal::helloRsp* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(1),
+                       controller, request, response, done);
+}
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace cal
@@ -628,6 +1039,12 @@ template<> PROTOBUF_NOINLINE ::cal::AddReq* Arena::CreateMaybeMessage< ::cal::Ad
 }
 template<> PROTOBUF_NOINLINE ::cal::AddRsp* Arena::CreateMaybeMessage< ::cal::AddRsp >(Arena* arena) {
   return Arena::CreateMessageInternal< ::cal::AddRsp >(arena);
+}
+template<> PROTOBUF_NOINLINE ::cal::helloReq* Arena::CreateMaybeMessage< ::cal::helloReq >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::cal::helloReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::cal::helloRsp* Arena::CreateMaybeMessage< ::cal::helloRsp >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::cal::helloRsp >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

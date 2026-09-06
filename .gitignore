@@ -5,3 +5,9 @@
 build/
 cmake-build-*/
 backup-git/
+
+# 无扩展名可执行文件（编译产物）
+/brpc/simple/sync_server
+/brpc/simple/sync_client
+/brpc/simple/async_server
+/brpc/simple/async_client
